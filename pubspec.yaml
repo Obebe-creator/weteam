@@ -24,12 +24,18 @@ dependencies:
   table_calendar: ^3.0.9
   image_picker: ^1.0.4
   camera: ^0.10.5+5
-  provider: ^6.0.5
+  http: ^1.1.0
+  flutter_secure_storage: ^9.0.0
+  gap: ^3.0.1
+  very_good_analysis: ^5.1.0
+  
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.4.7
+  flutter_gen_runner: ^5.3.2
 
   flutter_lints: ^2.0.0
 
@@ -37,6 +43,30 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+
+  fonts:
+  - family: a고딕12
+    fonts:    
+      - asset: assets/fonts/aGothic12.ttf
+  - family: a고딕14
+    fonts:
+      - asset: assets/fonts/aGothic14.ttf
+  - family: a고딕15
+    fonts:    
+      - asset: assets/fonts/aGothic15.ttf
+  - family: a고딕16
+    fonts:    
+      - asset: assets/fonts/aGothic16.ttf
+  - family: a고딕17
+    fonts:    
+      - asset: assets/fonts/aGothic17.ttf
+  - family: a고딕19
+    fonts:    
+      - asset: assets/fonts/aGothic19.ttf
+  - family: SB어그로M
+    fonts:
+      - asset: assets/fonts/SB 어그로 M.ttf
+      
 
 flutter_launcher_icons:
   android: "launcher_icon"
