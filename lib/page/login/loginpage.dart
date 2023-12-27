@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         const SizedBox(
-                          width: 40.0,
+                          width: 38.0,
                         ),
                         InkWell(
                           onTap: () {
