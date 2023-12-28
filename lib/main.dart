@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:weteam/app.dart';
 import 'package:weteam/binding/init_binding.dart';
 import 'package:weteam/controller/account_controller.dart';
-import 'package:weteam/view/login.dart';
+import 'package:weteam/view/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           bottomNavigationBarTheme: const BottomNavigationBarThemeData()),
-      home: const Login(),
+      home: const App(),
       initialBinding: InitBinding(),
       debugShowCheckedModeBanner: false, // Debug 배너 없애기
     );
