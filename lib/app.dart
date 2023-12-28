@@ -14,8 +14,11 @@ class App extends GetView<BottomNavController> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => WillPopScope(
-        onWillPop: controller.popAction,
+      () => PopScope(
+        canPop: true,
+        onPopInvoked: (didPop) {
+          controller.popAction();
+        },
         child: Scaffold(
           body: _body(),
           bottomNavigationBar: _bottom(),
@@ -25,37 +28,37 @@ class App extends GetView<BottomNavController> {
   }
 
   Widget _bottom() {
-    return BottomNavigationBar(
-      currentIndex: controller.index,
-      onTap: controller.changeIndex,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.black,
-      backgroundColor: Colors.white,
-      items: [
-        BottomNavigationBarItem(
-            icon: ImageData(path: ImagePath.homeOff),
-            activeIcon: ImageData(path: ImagePath.homeOn),
-            label: 'home'),
-        BottomNavigationBarItem(
-            icon: ImageData(path: ImagePath.teamOff),
-            activeIcon: ImageData(path: ImagePath.teamOn),
-            label: 'teamplay'),
-        BottomNavigationBarItem(
-            icon: ImageData(path: ImagePath.scheOff),
-            activeIcon: ImageData(path: ImagePath.scheOn),
-            label: 'schedule'),
-        BottomNavigationBarItem(
-            icon: ImageData(path: ImagePath.mypageOff),
-            activeIcon: ImageData(path: ImagePath.mypageOn),
-            label: 'mypage'),
+    print('check bottom nav');
+    return NavigationBar(
+      selectedIndex: controller.index,
+      onDestinationSelected: (index) => controller.changeIndex(index),
+      destinations: [
+        NavigationDestination(
+          icon: ImageData(path: ImagePath.homeOff),
+          selectedIcon: ImageData(path: ImagePath.homeOn),
+          label: '홈',
+        ),
+        NavigationDestination(
+          icon: ImageData(path: ImagePath.teamOff),
+          selectedIcon: ImageData(path: ImagePath.teamOn),
+          label: '진행팀플',
+        ),
+        NavigationDestination(
+          icon: ImageData(path: ImagePath.scheOff),
+          selectedIcon: ImageData(path: ImagePath.scheOn),
+          label: '내 스케쥴',
+        ),
+        NavigationDestination(
+          icon: ImageData(path: ImagePath.mypageOff),
+          selectedIcon: ImageData(path: ImagePath.mypageOn),
+          label: '마이',
+        ),
       ],
     );
   }
 
   Widget _body() {
+    print('check body()');
     return IndexedStack(
       index: controller.index,
       children: [

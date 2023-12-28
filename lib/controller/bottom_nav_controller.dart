@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 enum Page { HOME, TEAMPLAY, SCHEDULE, MYPAGE }
 
 class BottomNavController extends GetxController {
-  RxInt _pageIndex = 0.obs;
+  final RxInt _pageIndex = 0.obs;
 
-  List<int> _history = [0];
+  final List<int> _history = [0];
 
   int get index => _pageIndex.value;
 
